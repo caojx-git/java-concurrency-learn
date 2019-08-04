@@ -1,0 +1,1 @@
+本项目代码根据慕课视频教程《Java并发编程入门与高并发面试》整理出来，笔记见：http://note.youdao.com/noteshare?id=21aa871d0919c660b896a2c9777efcf2
