@@ -20,7 +20,7 @@ public class LockExample6 {
             try {
                 reentrantLock.lock(); //线程1，获取锁，加入AQS等待队列
                 log.info("wait signal"); // 1
-                condition.await(); //线程1就从我们正常的AQS队列里移除了，其实就是锁的释放，接着他马上他又加入到了Condition的等待队列里边去（大家可以回忆一下，我们在讲AQS的时候，他有两个队列，这个时候他用到了第二个队列）
+                condition.await(); //线程1就从我们正常的AQS队列里移除了，其实就是锁的释放，接着他马上他又加入到了Condition的等待队列里边去（大家可以回忆一下，我们在讲AQS的时候，他有两个队列，这个时候他用到了第二个队列） //注意必须在调用condition.await()之前调用reentrantLock.lock()代码获取同步监视器
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
