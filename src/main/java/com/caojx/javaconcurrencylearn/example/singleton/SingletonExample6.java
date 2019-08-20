@@ -3,7 +3,7 @@ package com.caojx.javaconcurrencylearn.example.singleton;
 import com.caojx.javaconcurrencylearn.annoations.ThreadSafe;
 
 /**
- * 饿汉模式, 类加载时创建，线程安全
+ * 饿汉模式, 使用静态代码块实现单例模式，类加载时创建，线程安全
  *
  * @author caojx
  * @version $Id: SingletonExample2.java,v 1.0 2019-07-24 18:12 caojx

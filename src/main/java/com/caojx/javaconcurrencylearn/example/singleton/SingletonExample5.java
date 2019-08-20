@@ -40,4 +40,19 @@ public class SingletonExample5 {
         }
         return instance;
     }
+
+    public static void main(String[] args) {
+        Thread threadA = new Thread(() -> {
+            System.out.println(SingletonExample5.getInstance());
+        });
+        threadA.start();
+        Thread threadB = new Thread(() -> {
+            System.out.println(SingletonExample5.getInstance());
+        });
+        threadB.start();
+        Thread threadC = new Thread(() -> {
+            System.out.println(SingletonExample5.getInstance());
+        });
+        threadC.start();
+    }
 }
