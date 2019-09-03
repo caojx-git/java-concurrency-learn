@@ -29,11 +29,11 @@ public class ConcurrentSkipListMapExample {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadNum);
         for (int index = 0; index < clientNum; index++) {
-            final int threadNum = index;
+            final int num = index;
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();
-                    func(threadNum);
+                    func(num);
                     semaphore.release();
                 } catch (Exception e) {
                     log.error("exception", e);
@@ -44,7 +44,7 @@ public class ConcurrentSkipListMapExample {
         log.info("size:{}", map.size());
     }
 
-    private static void func(int threadNum) {
-        map.put(threadNum, threadNum);
+    private static void func(int num) {
+        map.put(num, num);
     }
 }
