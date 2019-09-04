@@ -37,7 +37,7 @@ public class SingletonExample4 {
     private static SingletonExample4 instance = null;
 
     // 静态工厂方法
-    public synchronized static SingletonExample4 getInstance() {
+    public static SingletonExample4 getInstance() {
         if (instance == null) {//双重检测机制 // 线程 B
             synchronized (SingletonExample4.class) { //同步锁
                 if (instance == null) {

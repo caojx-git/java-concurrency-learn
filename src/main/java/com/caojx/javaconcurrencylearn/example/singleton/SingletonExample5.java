@@ -30,7 +30,7 @@ public class SingletonExample5 {
     private volatile static SingletonExample5 instance = null;
 
     // 静态工厂方法
-    public synchronized static SingletonExample5 getInstance() {
+    public static SingletonExample5 getInstance() {
         if (instance == null) {//双重检测机制
             synchronized (SingletonExample5.class) { //同步锁
                 if (instance == null) {
