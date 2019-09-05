@@ -16,6 +16,7 @@ public class CountDownLatchExample1 {
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
+        //给定一个计数器值来进行初始化
         final CountDownLatch countDownLatch = new CountDownLatch(threadCount);
         for (int i = 0; i < threadCount; i++) {
             final int threadNum = i;
@@ -25,10 +26,12 @@ public class CountDownLatchExample1 {
                 } catch (Exception e) {
                     log.error("exception", e);
                 } finally {
+                    //每次都countDown()方法的时候，计数器的值会减一
                     countDownLatch.countDown();
                 }
             });
         }
+        //计数器值减到零的时候，所有应调用await()方法处于等待状态的线程就会继续往下执行
         countDownLatch.await();
         log.info("finish");
         executorService.shutdown();

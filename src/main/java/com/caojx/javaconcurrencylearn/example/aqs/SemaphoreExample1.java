@@ -23,7 +23,7 @@ public class SemaphoreExample1 {
             final int threadNum = i;
             executorService.execute(() -> {
                 try {
-                    //获取一个许可
+                    //获取一个许可，如果没有许可就等待
                     semaphore.acquire();
                     test(threadNum);
                     //释放一个许可

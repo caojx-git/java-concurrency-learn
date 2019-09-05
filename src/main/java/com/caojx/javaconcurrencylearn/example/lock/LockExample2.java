@@ -56,6 +56,8 @@ public class LockExample2 {
      * 做+1 操作, 使用 lock
      */
     private static void add() {
+        //tryLock()函数，他本质上的作用是仅在调用时锁定未被另一个线程保持的情况下，才获取锁定。
+        // 与他相对应方法还有tryLock(long timeout, TimeUnit unit) 后面跟上两个参数代表超时时间和时间单位，它的作用是如果锁定在给定的等待时间内没有被另一个线程保持，且当前线程未被中断，则获取该锁定。
         lock.lock();
         try {
             count++;
