@@ -33,7 +33,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.example.lock.source;
+package com.caojx.javaconcurrencylearn.source;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -126,12 +126,12 @@ public interface ReadWriteLock {
      *
      * @return the lock used for reading
      */
-    com.caojx.javaconcurrencylearn.example.lock.source.Lock readLock();
+    com.caojx.javaconcurrencylearn.source.Lock readLock();
 
     /**
      * Returns the lock used for writing.
      *
      * @return the lock used for writing
      */
-    com.caojx.javaconcurrencylearn.example.lock.source.Lock writeLock();
+    com.caojx.javaconcurrencylearn.source.Lock writeLock();
 }

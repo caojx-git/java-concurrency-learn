@@ -33,13 +33,10 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.example.lock.source;
+package com.caojx.javaconcurrencylearn.source;
 
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
-import com.caojx.javaconcurrencylearn.example.lock.source.AbstractQueuedSynchronizer;
-import com.caojx.javaconcurrencylearn.example.lock.source.Condition;
-import com.caojx.javaconcurrencylearn.example.lock.source.Lock;
 
 /**
  * A reentrant mutual exclusion {@link Lock} with the same basic

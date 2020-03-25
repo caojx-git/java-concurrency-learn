@@ -33,7 +33,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.example.lock.source;
+package com.caojx.javaconcurrencylearn.source;
 
 import sun.misc.Unsafe;
 
@@ -2270,7 +2270,7 @@ public abstract class AbstractQueuedSynchronizer
 
         /**
          * Queries whether any threads are waiting on this condition.
-         * Implements {@link com.caojx.javaconcurrencylearn.example.lock.source.AbstractQueuedSynchronizer#hasWaiters(ConditionObject)}.
+         * Implements {@link com.caojx.javaconcurrencylearn.source.AbstractQueuedSynchronizer#hasWaiters(ConditionObject)}.
          *
          * @return {@code true} if there are any waiting threads
          * @throws IllegalMonitorStateException if {@link #isHeldExclusively}
@@ -2289,7 +2289,7 @@ public abstract class AbstractQueuedSynchronizer
         /**
          * Returns an estimate of the number of threads waiting on
          * this condition.
-         * Implements {@link com.caojx.javaconcurrencylearn.example.lock.source.AbstractQueuedSynchronizer#getWaitQueueLength(ConditionObject)}.
+         * Implements {@link com.caojx.javaconcurrencylearn.source.AbstractQueuedSynchronizer#getWaitQueueLength(ConditionObject)}.
          *
          * @return the estimated number of waiting threads
          * @throws IllegalMonitorStateException if {@link #isHeldExclusively}
@@ -2309,7 +2309,7 @@ public abstract class AbstractQueuedSynchronizer
         /**
          * Returns a collection containing those threads that may be
          * waiting on this Condition.
-         * Implements {@link com.caojx.javaconcurrencylearn.example.lock.source.AbstractQueuedSynchronizer#getWaitingThreads(ConditionObject)}.
+         * Implements {@link com.caojx.javaconcurrencylearn.source.AbstractQueuedSynchronizer#getWaitingThreads(ConditionObject)}.
          *
          * @return the collection of threads
          * @throws IllegalMonitorStateException if {@link #isHeldExclusively}
