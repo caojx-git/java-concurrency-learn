@@ -33,7 +33,11 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.source;
+package com.caojx.javaconcurrencylearn.source.lock;
+
+import com.caojx.javaconcurrencylearn.source.lock.AbstractQueuedSynchronizer;
+import com.caojx.javaconcurrencylearn.source.lock.Condition;
+import com.caojx.javaconcurrencylearn.source.lock.Lock;
 
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;

@@ -33,7 +33,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.source;
+package com.caojx.javaconcurrencylearn.source.lock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -113,12 +113,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * You should consider all of these things when evaluating the suitability
  * of a given implementation for your application.
  *
+ * @author Doug Lea
  * @see ReentrantReadWriteLock
  * @see Lock
  * @see ReentrantLock
- *
  * @since 1.5
- * @author Doug Lea
  */
 public interface ReadWriteLock {
     /**
@@ -126,12 +125,12 @@ public interface ReadWriteLock {
      *
      * @return the lock used for reading
      */
-    com.caojx.javaconcurrencylearn.source.Lock readLock();
+    com.caojx.javaconcurrencylearn.source.lock.Lock readLock();
 
     /**
      * Returns the lock used for writing.
      *
      * @return the lock used for writing
      */
-    com.caojx.javaconcurrencylearn.source.Lock writeLock();
+    com.caojx.javaconcurrencylearn.source.lock.Lock writeLock();
 }
