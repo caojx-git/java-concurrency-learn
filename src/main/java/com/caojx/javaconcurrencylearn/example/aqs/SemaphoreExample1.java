@@ -8,6 +8,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 /**
+ *
+ * Semaphore通过内部类实现了AQS框架提供的接口，而且基本结构几乎和ReentrantLock完全一样，通过内部类分别实现了公平/非公平策略
+ *
  * 测试Semaphore
  */
 @Slf4j

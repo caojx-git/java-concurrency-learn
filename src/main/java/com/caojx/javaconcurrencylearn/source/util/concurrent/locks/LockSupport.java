@@ -33,7 +33,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.source.lock;
+package com.caojx.javaconcurrencylearn.source.util.concurrent.locks;
 import sun.misc.Unsafe;
 
 /**

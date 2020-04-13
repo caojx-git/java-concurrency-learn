@@ -34,7 +34,7 @@ public class CyclicBarrierExample2 {
         Thread.sleep(1000);
         log.info("{} is ready", threadNum);
         try {
-            //超过等待时间之后，可能会抛出BrokenBarrierException，为了不影响后边的执行，这里try一下
+            // 超过等待时间之后，会抛出BrokenBarrierException，为了不影响后边的执行，这里try一下
             cyclicBarrier.await(2000, TimeUnit.MILLISECONDS);
         } catch (BrokenBarrierException | TimeoutException | InterruptedException e) {
             log.error("BrokenBarrierException | TimeoutException |  InterruptedException", e);

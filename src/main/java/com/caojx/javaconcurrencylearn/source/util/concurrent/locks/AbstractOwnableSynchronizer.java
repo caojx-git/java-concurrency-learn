@@ -33,7 +33,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.source.lock;
+package com.caojx.javaconcurrencylearn.source.util.concurrent.locks;
 
 /**
  * A synchronizer that may be exclusively owned by a thread.  This

@@ -10,7 +10,13 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 /**
  * AtomicReferenceFieldUpdaterExample 使用示例，原子性的去更新某个实例中的某个属性
  * <p>
- * AtomicIntegerFieldUpdater主要是让普通变量也享受原子操作
+ * AtomicIntegerFieldUpdater 主要是让普通变量也享受原子操作
+ * <p>
+ * 在java.util.concurrent.atomic包中，有三个比较特殊的原子类：AtomicIntegerFieldUpdater、AtomicLongFieldUpdater、AtomicReferenceFieldUpdater。
+ * 通过名称可以看到，这几类的功能大致相同，只是针对的类型有所不同，所谓AtomicXXXFieldUpdater，就是可以以一种线程安全的方式操作非线程安全对象的某些字段，
+ * AtomicIntegerFieldUpdater只能处理int原始类型的字段，AtomicLongFieldUpdater只能处理long原始类型的字段，AtomicReferenceFieldUpdater可以处理所有引用类型的字段。
+ * <p>
+ * 这里演示AtomicIntegerFieldUpdater的使用
  *
  * @author caojx
  * @version $Id: AtomicReferenceFieldUpdaterExample.java,v 1.0 2019-07-23 23:23 caojx
@@ -21,7 +27,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 public class AtomicReferenceFieldUpdaterExample {
 
     /**
-     * 原子性的去更新某个实例中的某个属性
+     * 原子性的去更新某个实例中的某个属性，根据源码AtomicIntegerFieldUpdaterImpl可以得出结论
      * 构造函数：
      * 第一个参数为值所在的对象
      * 第二个参数为对象中的属性名，该属性必须要求为 volatile 修饰，且为非static

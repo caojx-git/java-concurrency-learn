@@ -33,11 +33,11 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.source.lock;
+package com.caojx.javaconcurrencylearn.source.util.concurrent.locks;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import com.caojx.javaconcurrencylearn.source.util.concurrent.locks.Lock;
+import com.caojx.javaconcurrencylearn.source.util.concurrent.locks.ReentrantLock;
+import com.caojx.javaconcurrencylearn.source.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * A {@code ReadWriteLock} maintains a pair of associated {@link
@@ -125,12 +125,12 @@ public interface ReadWriteLock {
      *
      * @return the lock used for reading
      */
-    com.caojx.javaconcurrencylearn.source.lock.Lock readLock();
+    Lock readLock();
 
     /**
      * Returns the lock used for writing.
      *
      * @return the lock used for writing
      */
-    com.caojx.javaconcurrencylearn.source.lock.Lock writeLock();
+    Lock writeLock();
 }

@@ -14,6 +14,8 @@ import java.util.concurrent.atomic.LongAdder;
  * 使用Atomic包测试计数，线程安全
  * 使用：LongAdder
  *
+ * JDK1.8时，java.util.concurrent.atomic包中，除了新引入LongAdder外，还有引入了它的三个兄弟类：LongAccumulator、DoubleAdder、DoubleAccumulator
+ *
  * @author caojx
  * @version $Id: LongAdderExample.java,v 1.0 2019-07-23 16:22 caojx
  * @date 2019-07-23 16:22

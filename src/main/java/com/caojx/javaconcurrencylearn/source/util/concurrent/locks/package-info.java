@@ -76,4 +76,4 @@
  *
  * @since 1.5
  */
-package com.caojx.javaconcurrencylearn.source.lock;
+package com.caojx.javaconcurrencylearn.source.util.concurrent.locks;

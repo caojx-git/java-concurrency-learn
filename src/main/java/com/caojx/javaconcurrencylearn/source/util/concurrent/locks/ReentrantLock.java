@@ -33,11 +33,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-package com.caojx.javaconcurrencylearn.source.lock;
-
-import com.caojx.javaconcurrencylearn.source.lock.AbstractQueuedSynchronizer;
-import com.caojx.javaconcurrencylearn.source.lock.Condition;
-import com.caojx.javaconcurrencylearn.source.lock.Lock;
+package com.caojx.javaconcurrencylearn.source.util.concurrent.locks;
 
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
@@ -254,7 +250,7 @@ public class ReentrantLock implements Lock, java.io.Serializable {
             final Thread current = Thread.currentThread(); //当前线程
             int c = getState();                            //获取同步状态
             if (c == 0) {                                  //0 表示锁未被占用 （state 0 表示锁可用，1表示锁被占用，大于1表示锁被占用，且值表示同一线程的重入次数）
-                //如果等待队列中没有其他线程，则以CAS方式更新同步状态
+                //如果等待队列中没有其他线程，或者是队首结点(公平锁获取锁时，会判断等待队列中是否有线程排在当前线程前面。只有没有情况下，才去获取锁)，则以CAS方式更新同步状态
                 if (!hasQueuedPredecessors() && compareAndSetState(0, acquires)) {
                     //更新成功，设置锁的占有线程为当前线程
                     setExclusiveOwnerThread(current);
