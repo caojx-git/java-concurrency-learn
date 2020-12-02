@@ -20,10 +20,10 @@ public class BlockingQueueTest {
      */
     static final class Producer implements Runnable {
 
-        private Channel channel;
+        private StoreHouse storeHouse;
 
-        public Producer(Channel channel) {
-            this.channel = channel;
+        public Producer(StoreHouse storeHouse) {
+            this.storeHouse = storeHouse;
         }
 
         @Override
@@ -33,7 +33,7 @@ public class BlockingQueueTest {
                 String v = String.valueOf(ThreadLocalRandom.current().nextInt());
                 Data data = new Data(v);
                 try {
-                    channel.put(data);
+                    storeHouse.put(data);
                     System.out.println(Thread.currentThread().getName() + " produce :" + data);
 
                 } catch (InterruptedException e) {
@@ -49,10 +49,10 @@ public class BlockingQueueTest {
      * 消费者
      */
     static final class Consumer implements Runnable {
-        private final Channel channel;
+        private final StoreHouse storeHouse;
 
-        public Consumer(Channel channel) {
-            this.channel = channel;
+        public Consumer(StoreHouse storeHouse) {
+            this.storeHouse = storeHouse;
         }
 
         @Override
@@ -60,7 +60,7 @@ public class BlockingQueueTest {
             while (true) {
 
                 try {
-                    Object obj = channel.take();
+                    Object obj = storeHouse.take();
                     System.out.println(Thread.currentThread().getName() + " consume :" + obj.toString());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -72,14 +72,14 @@ public class BlockingQueueTest {
     }
 
     /**
-     * 通道类
+     * 仓库
      */
-    static final class  Channel {
+    static final class StoreHouse {
 
         private final BlockingQueue blockingQueue;
 
 
-        public Channel(BlockingQueue blockingQueue) {
+        public StoreHouse(BlockingQueue blockingQueue) {
             this.blockingQueue = blockingQueue;
         }
 
@@ -121,7 +121,7 @@ public class BlockingQueueTest {
 
     public static void main(String[] args) {
         BlockingQueue blockingQueue = new ArrayBlockingQueue(8);
-        Channel channel = new Channel(blockingQueue);
+        StoreHouse channel = new StoreHouse(blockingQueue);
 
         Producer p = new Producer(channel);
         Consumer c1 = new Consumer(channel);
