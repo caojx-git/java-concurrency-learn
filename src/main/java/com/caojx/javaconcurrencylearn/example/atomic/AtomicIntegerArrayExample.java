@@ -25,9 +25,11 @@ public class AtomicIntegerArrayExample {
     static AtomicIntegerArray arr = new AtomicIntegerArray(10);
 
     public static class AddThread implements Runnable {
+        @Override
         public void run() {
-            for (int k = 0; k < 10000; k++)
+            for (int k = 0; k < 10000; k++) {
                 arr.getAndIncrement(k % arr.length());
+            }
         }
     }
 
