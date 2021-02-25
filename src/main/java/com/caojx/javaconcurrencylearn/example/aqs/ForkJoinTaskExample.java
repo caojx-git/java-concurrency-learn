@@ -14,8 +14,8 @@ import java.util.concurrent.RecursiveTask;
  * 这里通常需要继承一个类，叫做RecursiveTask，这里我们给的是一个整形值，计算的任务需要返回一个整形。
  * RecursiveTask字面上其实就是递归的意思，我们他大任务不断的拆分成小任务，其实就是一个递归拆分任务的一个过程，
  * 同时我们需要复写RecursiveTask里边的compute()方法，我们具体来看下这个例子，我们任务是要做一个加和运算（1加到100），
- * 我们假设每次做相加这个操作会很耗时，当我们提交了任务之后，就会调用compute方法，compute他会真的去做fork和jion这个操作，
- * 我们问具体来看下这个操作，首先，他判断了一下加操作（boolean canCompute = (end - start) <= threshold;）
+ * 我们假设每次做相加这个操作会很耗时，当我们提交了任务之后，就会调用compute方法，compute他会真的去做fork和join这个操作，
+ * 我们具体来看下这个操作，首先，他判断了一下加操作（boolean canCompute = (end - start) <= threshold;）
  * 两端的值是否已经距离很近了，比如最开始的时候是100-1，默认是如果<=2的时候才开始执行，因此，最开始时都很难能命中if (canCompute) 判断。
  * 他相当于是，比如正常1~3的时候，会执行if (canCompute) 里边的操作，1~100的时候，他的任务可能特别重这个时候他就不做了，
  * 这个我们之前说了有前提是我们家的每次相加是一个很繁重的任务需要拆分，当然了1~100口算都算出来的，这就不符合我刚才说的前提了，
@@ -25,8 +25,8 @@ import java.util.concurrent.RecursiveTask;
  * 这样就相当于把一个大任务拆分成了多个小任务，通过递归的方式，拆分之后调用leftTask.fork() 、rightTask.fork()方法，
  * 然后子任务开始执行。子任务执行完成后通过leftTask.join()、rightTask.join() 把两端的子任务都合并起来，
  * 最后将我们两条递归线程的结果继续合并（sum = leftResult + rightResult）得到最终的结果。这段代码其实并不长，
- * 他很好的演示了我们刚才说的ForkJoin框架处理的流程，首先是才拆分子任务，然后子任务各自执行，子任务执行完成之后我们通过jion的方式，
- * 他子任务的结果合并起来，这里fork()和、jion()底层具体是怎么工作的，我们知道他其实是根据工作窃取的算法来做就可以了，不用过分的追究。
+ * 他很好的演示了我们刚才说的ForkJoin框架处理的流程，首先是才拆分子任务，然后子任务各自执行，子任务执行完成之后我们通过join的方式，
+ * 他子任务的结果合并起来，这里fork()和、join()底层具体是怎么工作的，我们知道他其实是根据工作窃取的算法来做就可以了，不用过分的追究。
  */
 @Slf4j
 public class ForkJoinTaskExample extends RecursiveTask<Integer> {
