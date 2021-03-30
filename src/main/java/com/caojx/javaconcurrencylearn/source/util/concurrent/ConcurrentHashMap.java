@@ -533,7 +533,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * tree removal about conversion back to plain bins upon
      * shrinkage.
      * <p>
-     * 链表转树的阈值，即链接结点数大于8时， 链表转换为树.
+     * 链表转树的阈值，即链表结点数大于8时，链表转换为树.
      */
     static final int TREEIFY_THRESHOLD = 8;
 
@@ -1089,7 +1089,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      */
     final V putVal(K key, V value, boolean onlyIfAbsent) {
         if (key == null || value == null) throw new NullPointerException();
-        int hash = spread(key.hashCode());
+        int hash = spread(key.hashCode()); // 再次计算hash值
 
         /**
          * 使用链表保存时，binCount记录table[i]这个桶中所保存的结点数；
@@ -2500,7 +2500,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * above for explanation.
      * <p>
      * 数据转移和扩容.
-     * 每个调用tranfer的线程会对当前旧table中[transferIndex-stride, transferIndex-1]位置的结点进行迁移
+     * 每个调用 transfer 的线程会对当前旧table中[transferIndex-stride, transferIndex-1]位置的结点进行迁移
      *
      * @param tab     旧table数组
      * @param nextTab 新table数组
@@ -2559,7 +2559,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
                     advance = false;
                 }
             }
-            if (i < 0 || i >= n || i + n >= nextn) {        // CASE1：当前是处理最后一个tranfer任务的线程或出现扩容冲突
+            if (i < 0 || i >= n || i + n >= nextn) {        // CASE1：当前是处理最后一个transfer任务的线程或出现扩容冲突
                 int sc;
                 if (finishing) {    // 所有桶迁移均已完成
                     nextTable = null;

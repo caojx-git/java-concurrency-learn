@@ -704,7 +704,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
             // 这个方法，是“内部线程”实际上执行的方法。原理是这样的：
             // 上面构造函数在生成“内部线程”时，把Worker本身，当做参数传给了“内部线程”
             // “内部线程”在自己的run方法里，执行的是worker的run方法，而worker的run方法执行的是runWorker这个方法。
-            // runWorker方法是ThreadPoolExectuor的方法，也就是说，线程池里的“内部线程”在调用run方法时，都是执行的这个方法
+            // runWorker方法是ThreadPoolExecutor的方法，也就是说，线程池里的“内部线程”在调用run方法时，都是执行的这个方法
             //（所以这个方法要注意同步）
             runWorker(this);
         }

@@ -932,7 +932,7 @@ public abstract class AbstractQueuedSynchronizer
      * 从等待队列中选取队首线程，并尝试获取锁，如果获取不到，就要确保在前驱能唤醒自己的情况下（将前驱状态设置为SIGNAL）进入阻塞状态.
      * 注意：正常情况下，该方法会一致阻塞当前线程，除非获取到锁才返回，如果执行过程中，抛出异常（tryAcquire方法），那么会将当前结点移除，继续上抛异常
      *
-     * @return {@code true} 如果线程阻塞过程中被中断，则返回ture
+     * @return {@code true} 如果线程阻塞过程中被中断，则返回true
      */
     final boolean acquireQueued(final Node node, int arg) {
         boolean failed = true;
