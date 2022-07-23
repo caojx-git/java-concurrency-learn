@@ -35,7 +35,7 @@ public class SynchronizedExample2 {
      */
     public synchronized void test2(int j) {
         for (int i = 0; i < 10; i++) {
-            log.info("test1 {} - {}", j, i);
+            log.info("test2 {} - {}", j, i);
         }
     }
 
