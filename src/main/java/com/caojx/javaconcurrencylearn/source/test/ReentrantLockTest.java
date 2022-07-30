@@ -35,16 +35,6 @@ public class ReentrantLockTest {
     }
 
     /**
-     * ThreadA先调用lock方法获取到锁，然后调用con.await()
-     * <p>
-     * ThreadB获取锁，调用con.signal()唤醒ThreadA
-     * <p>
-     * ThreadB释放锁
-     *
-     * @param args
-     */
-
-    /**
      * ThreadA    lock
      * <p>
      * ThreadB    lock
