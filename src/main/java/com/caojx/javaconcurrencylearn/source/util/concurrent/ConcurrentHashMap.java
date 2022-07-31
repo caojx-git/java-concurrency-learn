@@ -597,7 +597,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
     static final int MOVED = -1; // hash for forwarding nodes                       标识ForwardingNode结点（在扩容时才会出现，不存储实际数据）
     static final int TREEBIN = -2; // hash for roots of trees                       标识红黑树的根结点
     static final int RESERVED = -3; // hash for transient reservations              标识ReservationNode结点（）
-    static final int HASH_BITS = 0x7fffffff; // usable bits of normal node hash
+    static final int HASH_BITS = 0x7fffffff; // usable bits of normal node hash     1111111111111111111111111111111
 
     /**
      * Number of CPUS, to place bounds on some sizings
@@ -3059,7 +3059,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
          * TreeBin结点的查找
          * <p>
          * TreeBin的查找比较特殊，我们知道当槽table[i]被TreeBin结点占用时，说明链接的是一棵红黑树。由于红黑树的插入、删除会涉及整个结构的调整，所以通常存在读写并发操作的时候，是需要加锁的。
-         * ConcurrentHashMap采用了一种类似读写锁的方式：当线程持有写锁（修改红黑树）时，如果读线程需要查找，不会像传统的读写锁那样阻塞等待，而是转而以链表的形式进行查找（TreeBin本身时Node类型的子类，所有拥有Node的所有字段）
+         * ConcurrentHashMap采用了一种类似读写锁的方式：当线程持有写锁（修改红黑树）时，如果读线程需要查找，不会像传统的读写锁那样阻塞等待，而是转而以链表的形式进行查找（TreeBin本身是Node类型的子类，所有拥有Node的所有字段）
          * <p>
          * 从根结点开始遍历查找，找到“相等”的结点就返回它，没找到就返回null
          * 当存在写锁时，以链表方式进行查找
